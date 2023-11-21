@@ -1,6 +1,6 @@
 import ExploreContainer from '../components/ExploreContainer';
 import React, { useEffect, useState } from 'react';
-import { IonPage, IonHeader, IonTitle, IonContent, IonItem, IonLabel, IonToolbar, IonNavLink, IonButtons, IonBackButton, IonList } from '@ionic/react';
+import { IonPage, IonHeader, IonTitle, IonContent, IonItem, IonLabel, IonToolbar, IonNavLink, IonButtons, IonBackButton, IonList, IonTabBar, IonTabButton } from '@ionic/react';
 import './Team.css';
 import Home from './Home';
 import getTeam from './Home';
@@ -18,9 +18,9 @@ const getStatistics = () => {
             .catch(error => console.error(error));
     }, []);
 
-    const listPlayer_Statistics = (idJoueur: number) => {
+    const listStatistics = (idJoueur: number) => {
         history.push({
-            pathname: '/Player',
+            pathname: '/Statistics',
             state: { myData: idJoueur }
         });
     };
@@ -39,12 +39,20 @@ const getStatistics = () => {
                 <h3>Player</h3>
                 <IonList>
                     {posts.map((post: any) => ( // Assurez-vous d'ajuster le type de 'post' en fonction de la structure de vos données
-                        <IonItem key={post.id} onClick={() => listPlayer_Statistics(post.id)}>
+                        <IonItem key={post.id} onClick={() => listStatistics(post.id)}>
                             <IonLabel>{post.title}</IonLabel>
                         </IonItem>
                     ))}
                 </IonList>
             </IonContent>
+            <IonTabBar slot="bottom">
+                <IonTabButton tab="home" href="/home">
+                    <IonLabel>Home</IonLabel>
+                </IonTabButton>
+                <IonTabButton tab="team" href="/team">
+                    <IonLabel>Team</IonLabel>
+                </IonTabButton>
+            </IonTabBar>
         </IonPage>
     );
 };

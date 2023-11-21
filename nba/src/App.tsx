@@ -54,7 +54,7 @@ const App: React.FC = () => (
           <Route exact path="/statistics">
             <Statistics />
           </Route>
-          {/* <Redirect exact from="/" to="/home" /> */}
+          <Redirect exact from="/" to="/home" />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
         </IonTabBar>

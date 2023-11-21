@@ -1,10 +1,8 @@
-import ExploreContainer from '../components/ExploreContainer';
 import React, { useEffect, useState } from 'react';
-import { IonPage, IonHeader, IonTitle, IonContent, IonItem, IonLabel, IonToolbar, IonNavLink, IonButtons, IonBackButton, IonList } from '@ionic/react';
+import { IonPage, IonHeader, IonTitle, IonContent, IonItem, IonLabel, IonToolbar, IonNavLink, IonButtons, IonBackButton, IonList, IonFooter, IonTabBar, IonTabButton, IonRouterLink } from '@ionic/react';
 import './Team.css';
-import Home from './Home';
-import getTeam from './Home';
 import { useHistory } from 'react-router';
+import { IonReactRouter } from '@ionic/react-router';
 
 const getPlayer = () =>{
 
@@ -45,6 +43,12 @@ const getPlayer = () =>{
                     ))}
                 </IonList>
             </IonContent>
+            <IonFooter> 
+            <IonTabBar slot="bottom">
+                <IonTabButton tab="home" href="/home"> Home </IonTabButton>
+                <IonTabButton tab="team" href="/team"> Team </IonTabButton>
+            </IonTabBar>
+            </IonFooter>
         </IonPage>
     );
 };
