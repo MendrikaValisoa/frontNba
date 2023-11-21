@@ -6,41 +6,41 @@ import Home from './Home';
 import getTeam from './Home';
 import { useHistory } from 'react-router';
 
-const getPlayer = () =>{
+const getStatistics = () => {
 
     const history = useHistory();
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
+        fetch('https://jsonplaceholder.typicode.com/posts')
             .then(response => response.json())
             .then(data => setPosts(data))
             .catch(error => console.error(error));
     }, []);
 
-    const listPlayer = (idEquipe: number) => {
+    const listPlayer_Statistics = (idJoueur_stat: number) => {
         history.push({
             pathname: '/Player',
-            state: { myData: idEquipe }
+            state: { myData: idJoueur_stat }
         });
     };
 
-    return(
+    return (
         <IonPage>
             <IonHeader>
                 <IonToolbar>
                     <IonButtons slot="start">
-                    <IonBackButton></IonBackButton>
+                        <IonBackButton></IonBackButton>
                     </IonButtons>
                     <IonTitle>NBA</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent fullscreen>
-                <h3>Teams</h3>    
+                <h3>Statistics</h3>
                 <IonList>
-                    {posts.map((user: any) => ( // Assurez-vous d'ajuster le type de 'post' en fonction de la structure de vos données
-                        <IonItem key={user.id} onClick={() => listPlayer(user.id)}>
-                            <IonLabel>{user.name}</IonLabel>
+                    {posts.map((post: any) => ( // Assurez-vous d'ajuster le type de 'post' en fonction de la structure de vos données
+                        <IonItem key={post.id}>
+                            <IonLabel>{post.body}</IonLabel>
                         </IonItem>
                     ))}
                 </IonList>
@@ -48,5 +48,4 @@ const getPlayer = () =>{
         </IonPage>
     );
 };
-export default getPlayer;
-   
+export default getStatistics;

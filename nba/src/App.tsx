@@ -11,11 +11,9 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-// import Tab1 from './pages/Tab1';
-import Tab3 from './pages/Tab3';
-import Team from './pages/Team';
 import Home from './pages/Home';
+import Team from './pages/Team';
+import Player from './pages/Player';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -35,6 +33,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Statistics from './pages/Statistics';
 
 setupIonicReact();
 
@@ -43,13 +42,19 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/team">
-            <Team />
-            {/* <IonNav root={() => <Team />}></IonNav>; */}
-          </Route>
           <Route exact path="/home">
             <Home />
           </Route>
+          <Route exact path="/team">
+            <Team />
+          </Route>
+          <Route exact path="/player">
+            <Player />
+          </Route>
+          <Route exact path="/statistics">
+            <Statistics />
+          </Route>
+          {/* <Redirect exact from="/" to="/home" /> */}
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
         </IonTabBar>
