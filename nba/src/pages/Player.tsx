@@ -2,8 +2,6 @@ import ExploreContainer from '../components/ExploreContainer';
 import React, { useEffect, useState } from 'react';
 import { IonPage, IonHeader, IonTitle, IonContent, IonItem, IonLabel, IonToolbar, IonNavLink, IonButtons, IonBackButton, IonList, IonTabBar, IonTabButton } from '@ionic/react';
 import './Team.css';
-import Home from './Home';
-import getTeam from './Home';
 import { useHistory } from 'react-router';
 
 const getStatistics = () => {
@@ -46,12 +44,8 @@ const getStatistics = () => {
                 </IonList>
             </IonContent>
             <IonTabBar slot="bottom">
-                <IonTabButton tab="home" href="/home">
-                    <IonLabel>Home</IonLabel>
-                </IonTabButton>
-                <IonTabButton tab="team" href="/team">
-                    <IonLabel>Team</IonLabel>
-                </IonTabButton>
+                <IonTabButton tab="home" href="/home"> Home </IonTabButton>
+                <IonTabButton tab="team" href="/team"> Team </IonTabButton>
             </IonTabBar>
         </IonPage>
     );

@@ -43,12 +43,10 @@ const getPlayer = () =>{
                     ))}
                 </IonList>
             </IonContent>
-            <IonFooter> 
             <IonTabBar slot="bottom">
                 <IonTabButton tab="home" href="/home"> Home </IonTabButton>
                 <IonTabButton tab="team" href="/team"> Team </IonTabButton>
             </IonTabBar>
-            </IonFooter>
         </IonPage>
     );
 };

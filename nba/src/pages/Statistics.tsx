@@ -1,9 +1,7 @@
 import ExploreContainer from '../components/ExploreContainer';
 import React, { useEffect, useState } from 'react';
-import { IonPage, IonHeader, IonTitle, IonContent, IonItem, IonLabel, IonToolbar, IonNavLink, IonButtons, IonBackButton, IonList, IonTabBar, IonTabButton } from '@ionic/react';
+import { IonPage, IonHeader, IonTitle, IonContent, IonItem, IonLabel, IonToolbar, IonNavLink, IonButtons, IonBackButton, IonList, IonTabBar, IonTabButton, IonGrid, IonCol, IonRow } from '@ionic/react';
 import './Team.css';
-import Home from './Home';
-import getTeam from './Home';
 import { useHistory } from 'react-router';
 
 const getStatistics = () => {
@@ -18,13 +16,6 @@ const getStatistics = () => {
             .catch(error => console.error(error));
     }, []);
 
-    // const listPlayer_Statistics = (idJoueur_stat: number) => {
-    //     history.push({
-    //         pathname: '/Player',
-    //         state: { myData: idJoueur_stat }
-    //     });
-    // };
-
     return (
         <IonPage>
             <IonHeader>
@@ -37,21 +28,17 @@ const getStatistics = () => {
             </IonHeader>
             <IonContent fullscreen>
                 <h3>Statistics</h3>
-                <IonList>
+                <IonGrid>
                     {posts.map((post: any) => ( // Assurez-vous d'ajuster le type de 'post' en fonction de la structure de vos données
-                        <IonItem key={post.id}>
-                            <IonLabel>{post.body}</IonLabel>
-                        </IonItem>
+                        <IonRow key={post.id}>
+                            <IonCol>{post.body}</IonCol>
+                        </IonRow>
                     ))}
-                </IonList>
+                </IonGrid>
             </IonContent>
             <IonTabBar slot="bottom">
-                <IonTabButton tab="home" href="/home">  
-                    <IonLabel>Home</IonLabel>
-                </IonTabButton>
-                <IonTabButton tab="team" href="/team">
-                    <IonLabel>Team</IonLabel>
-                </IonTabButton>
+                <IonTabButton tab="home" href="/home"> Home </IonTabButton>
+                <IonTabButton tab="team" href="/team"> Team </IonTabButton>
             </IonTabBar>
         </IonPage>
     );

@@ -1,0 +1,16 @@
+ion-item {
+    border-bottom: 1px solid #ddd;
+}
+
+ion-item:last-child {
+    border-bottom: none;
+}
+
+ion-label {
+    font-size: 18px;
+    color: #333;
+}
+
+ion-item:selected {
+    background-color: #f0f0f0;
+}
